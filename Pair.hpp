@@ -18,22 +18,30 @@ namespace ft
 
             Pair (const Pair<U,V>& pr)
             {
-                first = pr.first;
-                second = pr.second;
+                first = (U)pr.first;
+                second = (V)pr.second;
             }
 
             Pair (const first_type& a, const second_type& b)
             {
-                first = a;
-                second = b;
+                first = (U)a;
+                second = (V)b;
             }
 
             Pair & operator=(const Pair &assign)
             {
-                first = assign.first;
-                second = assign.second;
+                first = (U)assign.first;
+                second = (V)assign.second;
                 return *this;
             };
+
+            template<typename U1, typename U2>
+            Pair& operator=( const Pair<U1, U2>& p )
+            {
+                first = U(p.first);
+                second = V(p.second);
+                return *this;
+            }      
 
             bool operator==(const Pair& rhs ){
             if (first == rhs.first)

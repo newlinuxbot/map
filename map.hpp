@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include "iterator.hpp"
+# include "Pair.hpp"
 
 using namespace std;
 
