@@ -15,6 +15,9 @@ namespace ft
     class map
     {
         public:
+            typedef std::less<Key> key_compare;
+            typedef std::allocator<std::pair<const Key,T> > allocator_type ;  
+        public:
 
             struct bst
             {
@@ -49,11 +52,29 @@ namespace ft
                 cout << "constructor";
             }
 
-            map(const map &copy){};
+            template <class Iterator>
+            map (Iterator first, Iterator last,
+                const key_compare& comp = key_compare(),
+                const allocator_type& alloc = allocator_type())
+            {
+                cout << "Another constructor";
+            }
+
+            map(const map &copy)
+            {
+                root = copy.root;
+            }
             
-            ~map(){};
+            ~map()
+            {
+                delete root;
+            }
             
-            map & operator=(const map &assign){};
+            map & operator=(const map &assign)
+            {
+                root = assign.root;
+                return *this;
+            }
             
         private:
             bst *root;
