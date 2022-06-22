@@ -2,8 +2,17 @@
 # define MAP_HPP
 
 # include <iostream>
+# include "iterator.hpp"
 
 using namespace std;
+
+/*
+    implement std::pair
+    implement std::make pair
+    implement iterator
+    implement reverse iterator
+
+*/
 
 namespace ft
 {
